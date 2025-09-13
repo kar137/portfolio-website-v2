@@ -45,9 +45,6 @@ function Header() {
                 {n.label}
               </a>
             ))}
-            <Link className="neon-outline" to="/admin">
-              Admin
-            </Link>
           </nav>
           <button
             className="md:hidden neon-outline"
@@ -71,13 +68,6 @@ function Header() {
                 {n.label}
               </a>
             ))}
-            <Link
-              className="neon-outline"
-              to="/admin"
-              onClick={() => setOpen(false)}
-            >
-              Admin
-            </Link>
           </div>
         </div>
       )}
