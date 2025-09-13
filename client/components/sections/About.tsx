@@ -39,14 +39,30 @@ export default function About() {
             </li>
           </ul>
         </Reveal>
-        <Reveal className="order-1 md:order-2 relative">
-          <div className="relative mx-auto aspect-square w-72 sm:w-96">
-            <div className="absolute inset-0 rounded-2xl glass holo-ring overflow-hidden" />
-            <div className="absolute inset-0 rounded-2xl overflow-hidden">
-              <NeuralNetworkInline />
+        <Reveal className="order-1 md:order-2 relative flex items-center justify-center">
+          <div className="flex flex-col items-center gap-4">
+            <div className="relative">
+              {/* circular portrait with subtle gradient ring */}
+              <div className="rounded-full p-1 bg-gradient-to-tr from-neon-cyan/30 via-neon-purple/20 to-neon-pink/20">
+                <div className="rounded-full overflow-hidden bg-muted">
+                    <img
+                      src="/profile.png"
+                      alt="Karan"
+                      className="w-[19rem] h-[19rem] sm:w-[20rem] sm:h-[20rem] lg:w-[23rem] lg:h-[23rem] object-cover"
+                    />
+                </div>
+              </div>
+
+              {/* subtle outer glow */}
+              <span className="pointer-events-none absolute -inset-1 rounded-full block shadow-[0_20px_60px_rgba(162,89,255,0.06)]" />
+            </div>
+
+            {/* name badge */}
+            <div className="text-center">
+              <p className="font-semibold">Karan Bista</p>
+              <p className="text-xs text-muted-foreground">AI / ML Developer</p>
             </div>
           </div>
-          <div className="pointer-events-none absolute -inset-6 -z-10 bg-radial-glow rounded-3xl" />
         </Reveal>
       </div>
     </section>
