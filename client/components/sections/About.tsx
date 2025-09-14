@@ -8,33 +8,31 @@ export default function About() {
         <Reveal className="order-2 md:order-1">
           <h2 className="section-title">About Me</h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            I am Karan Bista, an AI/ML developer focused on crafting intelligent
-            systems that elevate products with predictive insights, generative
-            experiences, and scalable data pipelines.
+            I’m Karan Bista, an AI/ML developer passionate about building intelligent systems that power products with predictive insights, generative AI experiences, and scalable data-driven pipelines. My work bridges innovation with practicality, turning advanced models into solutions that truly deliver value.
           </p>
           <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
             <li className="holo-card">
               <p className="font-semibold">Mission</p>
               <p className="text-sm text-muted-foreground mt-1">
-                Turn complex data into actionable intelligence.
+                Transform complex data into actionable intelligence that drives innovation and impact.
               </p>
             </li>
             <li className="holo-card">
               <p className="font-semibold">Expertise</p>
               <p className="text-sm text-muted-foreground mt-1">
-                ML systems, LLM apps, MLOps, and data visualization.
+                Designing and deploying ML systems, building LLM-powered applications, implementing MLOps workflows, and creating insightful data visualizations.
               </p>
             </li>
             <li className="holo-card">
               <p className="font-semibold">Values</p>
               <p className="text-sm text-muted-foreground mt-1">
-                Clarity, reliability, and delightful UX.
+                Clarity in communication, reliability in solutions, and user experiences that feel intuitive and meaningful.
               </p>
             </li>
             <li className="holo-card">
               <p className="font-semibold">Focus</p>
               <p className="text-sm text-muted-foreground mt-1">
-                Real-world impact, measurable outcomes.
+                Delivering real-world impact with measurable outcomes that scale.
               </p>
             </li>
           </ul>

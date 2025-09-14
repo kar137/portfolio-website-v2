@@ -154,6 +154,18 @@
     );
     box-shadow: inset 0 0 20px hsla(var(--neon-blue), 0.25);
   }
+    .border-github {
+      border-color: hsl(var(--neon-blue)) !important;
+    }
+    .border-linkedin {
+      border-color: hsl(var(--neon-cyan)) !important;
+    }
+    .border-twitter {
+      border-color: hsl(var(--neon-purple)) !important;
+    }
+    .border-email {
+      border-color: hsl(var(--neon-pink)) !important;
+    }
   .neon-outline:hover {
     box-shadow:
       inset 0 0 28px hsla(var(--neon-pink), 0.28),

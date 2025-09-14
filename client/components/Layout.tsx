@@ -27,7 +27,7 @@ function Header() {
   ];
   return (
     <header className="sticky top-0 z-50">
-  <div className="backdrop-blur-xl border-b border-border glass">
+  <div className="backdrop-blur-xl border-b border-twitter glass">
         <div className="container flex items-center justify-between py-3">
           <Link
             to="/"
@@ -56,7 +56,7 @@ function Header() {
         </div>
       </div>
       {open && (
-  <div className="md:hidden glass border-b border-border">
+  <div className="md:hidden glass border-b border-twitter">
           <div className="container py-3 grid gap-2">
             {nav.map((n) => (
               <a
@@ -77,10 +77,9 @@ function Header() {
 
 function Footer() {
   return (
-  <footer className="mt-20 border-t border-border">
+  <footer className="mt-20 border-t border-twitter">
       <div className="container py-10 text-sm text-muted-foreground flex items-center justify-between flex-wrap gap-3">
         <p>© {new Date().getFullYear()} Karan Bista. All rights reserved.</p>
-        <p>Built with modern web + AI/ML aesthetics.</p>
       </div>
     </footer>
   );

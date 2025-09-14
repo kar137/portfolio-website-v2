@@ -8,28 +8,34 @@ const categories: {
   skills: string[];
 }[] = [
   {
-    title: "Programming",
+    title: "Languages",
     icon: Code2,
     color: "from-neon-blue to-neon-purple",
-    skills: ["Python", "TypeScript", "Rust", "Go"],
+    skills: ["Python", "JavaScript", "HTML5", "CSS3", "Java"],
   },
   {
-    title: "AI/ML Frameworks",
+    title: "Frameworks & Libraries",
     icon: Brain,
     color: "from-neon-purple to-neon-pink",
-    skills: ["PyTorch", "TensorFlow", "scikit-learn", "Transformers"],
+    skills: ["Django", "Django REST Framework", "FastAPI", "Flask", "Tailwind CSS"],
   },
   {
-    title: "Tools",
-    icon: Wrench,
-    color: "from-neon-cyan to-neon-blue",
-    skills: ["Weights & Biases", "LangChain", "Docker", "GitHub Actions"],
-  },
-  {
-    title: "Cloud & DevOps",
+    title: "Databases",
     icon: Cloud,
+    color: "from-neon-cyan to-neon-blue",
+    skills: ["PostgreSQL", "MySQL", "SQLite"],
+  },
+  {
+    title: "AI / ML & Data Science",
+    icon: Brain,
     color: "from-neon-pink to-neon-cyan",
-    skills: ["AWS", "GCP", "Kubernetes", "Terraform"],
+    skills: ["PyTorch", "TensorFlow", "Transformers", "Hugging Face", "LangChain / NLP"],
+  },
+  {
+    title: "DevOps & Tools",
+    icon: Wrench,
+    color: "from-neon-blue to-neon-purple",
+    skills: ["Docker", "Git", "GitHub", "Postman", "Anaconda"],
   },
 ];
 
@@ -40,11 +46,10 @@ export default function Skills() {
         <Reveal>
           <h2 className="section-title">Skills</h2>
           <p className="mt-3 text-muted-foreground max-w-2xl">
-            Interactive overview of my expertise across programming, ML,
-            tooling, and cloud infrastructure.
+            An interactive overview of my expertise across programming, AI/ML, frameworks, DevOps, and tools.
           </p>
         </Reveal>
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+  <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {categories.map((cat) => {
             const Icon = cat.icon;
             return (

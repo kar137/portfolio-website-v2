@@ -1,8 +1,23 @@
 import { NeuralNetworkBackground } from "@/components/three/NeuralNetwork";
 import { ArrowRight, Mail } from "lucide-react";
+
+import { useEffect, useState } from "react";
 import Reveal from "@/components/Reveal";
 
 export default function Hero() {
+  const typewriterText =
+    "Crafting intelligent solutions at the intersection of data, AI, and futuristic innovation, shaping smarter systems that redefine how we interact with technology.";
+  const [displayed, setDisplayed] = useState("");
+  useEffect(() => {
+    let i = 0;
+    const interval = setInterval(() => {
+      setDisplayed(typewriterText.slice(0, i + 1));
+      i++;
+      if (i === typewriterText.length) clearInterval(interval);
+  }, 2);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section
       id="home"
@@ -18,9 +33,9 @@ export default function Hero() {
               AI/ML Developer
             </span>
           </h1>
-          <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl">
-            Transforming data into intelligence with futuristic solutions.
-            Interactive neural networks and holographic UI.
+          <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl min-h-[4.5rem]">
+            {displayed}
+            {displayed.length < typewriterText.length && <span className="animate-pulse">|</span>}
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a href="#projects" className="neon-btn">

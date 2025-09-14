@@ -87,36 +87,36 @@ export default function Contact() {
                 Open to collaborations, freelance projects, and full-time roles.
               </p>
               <div className="mt-6 grid grid-cols-2 gap-4">
-                <a
-                  className="neon-outline flex items-center justify-center gap-2"
-                  href="https://github.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <Github className="h-5 w-5" /> GitHub
-                </a>
-                <a
-                  className="neon-outline flex items-center justify-center gap-2"
-                  href="https://www.linkedin.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <Linkedin className="h-5 w-5" /> LinkedIn
-                </a>
-                <a
-                  className="neon-outline flex items-center justify-center gap-2"
-                  href="https://twitter.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <Twitter className="h-5 w-5" /> Twitter
-                </a>
-                <a
-                  className="neon-outline flex items-center justify-center gap-2"
-                  href="mailto:karan@example.com"
-                >
-                  <Mail className="h-5 w-5" /> Email
-                </a>
+                  <a
+                    className="neon-outline border-github flex items-center justify-center gap-2"
+                    href="https://github.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Github className="h-5 w-5" /> GitHub
+                  </a>
+                  <a
+                    className="neon-outline border-linkedin flex items-center justify-center gap-2"
+                    href="https://www.linkedin.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Linkedin className="h-5 w-5" /> LinkedIn
+                  </a>
+                  <a
+                    className="neon-outline border-twitter flex items-center justify-center gap-2"
+                    href="https://twitter.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Twitter className="h-5 w-5" /> Twitter
+                  </a>
+                  <a
+                    className="neon-outline border-email flex items-center justify-center gap-2"
+                    href="mailto:karan@example.com"
+                  >
+                    <Mail className="h-5 w-5" /> Email
+                  </a>
               </div>
             </div>
           </Reveal>
