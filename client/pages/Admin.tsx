@@ -284,14 +284,7 @@ function CertForm({
           placeholder="Organization"
         />
       </div>
-      <div>
-        <Label>Date</Label>
-        <Input
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          placeholder="YYYY-MM-DD"
-        />
-      </div>
+      {/* Date field removed: date is set automatically on publish */}
       <div>
         <Label>Logo URL</Label>
         <Input
@@ -335,11 +328,13 @@ function BlogForm({
       className="grid gap-4 md:grid-cols-2 mt-6"
       onSubmit={(e) => {
         e.preventDefault();
+        const now = new Date();
+        const formattedDate = now.toLocaleString();
         onSubmit({
           title,
           description,
           image,
-          date,
+          date: formattedDate,
           tags: tags
             .split(",")
             .map((s) => s.trim())
@@ -379,14 +374,7 @@ function BlogForm({
           placeholder="https://..."
         />
       </div>
-      <div>
-        <Label>Date</Label>
-        <Input
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          placeholder="YYYY-MM-DD"
-        />
-      </div>
+      {/* Date field removed: date is set automatically on publish */}
       <div className="md:col-span-2">
         <Label>Tags (comma-separated)</Label>
         <Input
@@ -401,8 +389,9 @@ function BlogForm({
           rows={8}
           value={content}
           onChange={(e) => setContent(e.target.value)}
-          placeholder="Write the full blog post here"
+          placeholder={"Write the full blog post here. Use blank lines to separate paragraphs."}
         />
+        <p className="text-xs text-muted-foreground mt-1">Tip: Use blank lines to separate paragraphs. Your formatting will be preserved.</p>
       </div>
       <div className="md:col-span-2">
         <button className="neon-btn w-full" type="submit">
