@@ -113,7 +113,7 @@ export default function Contact() {
                   </a>
                   <a
                     className="neon-outline border-email flex items-center justify-center gap-2"
-                    href="mailto:karan@example.com"
+                    href="mailto:bistak297@gmail.com"
                   >
                     <Mail className="h-5 w-5" /> Email
                   </a>

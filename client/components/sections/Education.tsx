@@ -1,22 +1,22 @@
 import Reveal from "@/components/Reveal";
 
-type Edu = { school: string; degree: string; period: string; logoUrl: string };
-
-const items: Edu[] = [
+const items = [
   {
-    school: "Tech University",
-    degree: "M.Sc. in Artificial Intelligence",
-    period: "2017 — 2019",
-    logoUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/4/44/Google-flutter-logo.svg",
+    school: "Nepal Engineering College",
+    degree: "B.E. in Computer Engineering",
+    period: "2022 - 2026",
+    description:
+      "Focused on AI, ML, software engineering, embedded systems, and hardware design, with hands-on projects in machine learning, neural networks, microcontrollers, and data-driven applications.",
+    logoUrl: ""
   },
   {
-    school: "Science College",
-    degree: "B.Sc. in Computer Science",
-    period: "2013 — 2017",
-    logoUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png",
-  },
+    school: "Prasadi Academy",
+    degree: "High School (Science)",
+    period: "2019 - 2021",
+    description:
+      "Completed Science stream, building a strong foundation in mathematics, physics, and computer science.",
+    logoUrl: ""
+  }
 ];
 
 export default function Education() {
@@ -29,16 +29,12 @@ export default function Education() {
         <div className="mt-8 grid gap-6 sm:grid-cols-2">
           {items.map((e) => (
             <Reveal key={e.school}>
-              <div className="holo-card flex items-center gap-4">
-                <img
-                  src={e.logoUrl}
-                  alt="logo"
-                  className="h-10 w-10 object-contain bg-white rounded-md p-1"
-                />
+              <div className="holo-card flex flex-col gap-2">
                 <div>
-                  <p className="font-semibold">{e.degree}</p>
+                  <p className="font-semibold text-lg">{e.degree}</p>
                   <p className="text-sm text-neon-cyan">{e.school}</p>
-                  <p className="text-xs text-muted-foreground">{e.period}</p>
+                  <p className="text-xs text-muted-foreground mb-2">{e.period}</p>
+                  <p className="text-sm text-muted-foreground">{e.description}</p>
                 </div>
               </div>
             </Reveal>

@@ -1,27 +1,12 @@
-type Item = { company: string; role: string; period: string; details: string };
 
-const items: Item[] = [
+const items = [
   {
-    company: "AI Labs",
-    role: "Senior AI/ML Engineer",
-    period: "2023 — Present",
+    company: "Fusemachines",
+    role: "AI Fellow",
+    period: "April 2025 — Present",
     details:
-      "Leading LLM-powered features, retrieval systems, and real-time analytics for enterprise products.",
-  },
-  {
-    company: "DataCraft",
-    role: "Machine Learning Engineer",
-    period: "2021 — 2023",
-    details:
-      "Built end-to-end ML pipelines, model monitoring, and automated model retraining workflows.",
-  },
-  {
-    company: "Visionary Tech",
-    role: "Data Scientist",
-    period: "2019 — 2021",
-    details:
-      "Developed predictive models and dashboards improving KPIs across product teams.",
-  },
+      "Worked on cutting-edge AI/ML projects including LLM-powered applications, NLP pipelines, and AI-driven analytics, contributing to research, prototyping, and deployment of intelligent systems."
+  }
 ];
 
 import Reveal from "@/components/Reveal";

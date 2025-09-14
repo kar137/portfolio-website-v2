@@ -5,27 +5,45 @@ import type { BlogPost } from "@/components/sections/Blog";
 export const initialProjects: Project[] = [
   {
     id: "p1",
-    title: "Neural Style Transfer Studio",
-    description:
-      "Interactive studio for real-time style transfer using optimized CNNs and WebGPU previews.",
+    title: "Resume Analyzer (FastAPI)",
+    description: "Microservice built with FastAPI to analyze resumes.",
     image: "/placeholder.svg",
-    technologies: ["PyTorch", "WebGPU", "FastAPI"],
+    technologies: ["Python", "FastAPI", "Machine Learning"],
   },
   {
     id: "p2",
-    title: "LLM-Powered Document Q&A",
-    description:
-      "Retrieval augmented generation with vector search, streaming responses, and guardrails.",
+    title: "Machine Learning Portfolio",
+    description: "Jupyter Notebook showcasing machine learning experiments and models.",
     image: "/placeholder.svg",
-    technologies: ["LangChain", "OpenAI", "Pinecone"],
+    technologies: ["Python", "Jupyter", "scikit-learn"],
   },
   {
     id: "p3",
-    title: "MLOps Pipeline",
-    description:
-      "Automated model training, evaluation, and deployment with monitoring and CI/CD.",
+    title: "Chat Application (Django)",
+    description: "Real-time chat application built using Django Channels and WebSockets.",
     image: "/placeholder.svg",
-    technologies: ["Weights & Biases", "Docker", "GCP"],
+    technologies: ["Python", "Django", "WebSockets"],
+  },
+  {
+    id: "p4",
+    title: "Stress Signals & Mental Health Risk Predictor",
+    description: "Predicting mental health risk based on stress signals using ML models.",
+    image: "/placeholder.svg",
+    technologies: ["Python", "Jupyter", "Machine Learning"],
+  },
+  {
+    id: "p5",
+    title: "Blango",
+    description: "Web application project built for learning Django and web app development.",
+    image: "/placeholder.svg",
+    technologies: ["Python", "Django", "Web Development"],
+  },
+  {
+    id: "p6",
+    title: "QueryPilot – Smart Docs Assistant",
+    description: "AI-powered assistant to query and analyze documents intelligently.",
+    image: "/placeholder.svg",
+    technologies: ["Python", "NLP", "Transformers", "LangChain"],
   },
 ];
 
