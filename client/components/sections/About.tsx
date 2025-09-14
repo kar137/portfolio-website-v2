@@ -5,10 +5,10 @@ export default function About() {
   return (
     <section id="about" className="section">
       <div className="container grid md:grid-cols-2 gap-10 items-center">
-        <Reveal className="order-2 md:order-1">
+        <div className="order-2 md:order-1">
           <h2 className="section-title">About Me</h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            I’m Karan Bista, an AI/ML developer passionate about building intelligent systems that power products with predictive insights, generative AI experiences, and scalable data-driven pipelines. My work bridges innovation with practicality, turning advanced models into solutions that truly deliver value.
+            Crafting intelligent solutions at the intersection of data, AI, and futuristic innovation, shaping smarter systems that redefine how we interact with technology.
           </p>
           <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
             <li className="holo-card">
@@ -36,7 +36,7 @@ export default function About() {
               </p>
             </li>
           </ul>
-        </Reveal>
+        </div>
         <Reveal className="order-1 md:order-2 relative flex items-center justify-center">
           <div className="flex flex-col items-center gap-4">
             <div className="relative">

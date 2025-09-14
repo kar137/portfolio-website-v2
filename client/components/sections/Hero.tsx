@@ -1,29 +1,19 @@
-import { NeuralNetworkBackground } from "@/components/three/NeuralNetwork";
+import React, { Suspense, useEffect, useState } from "react";
+const NeuralNetworkBackground = React.lazy(() => import("@/components/three/NeuralNetwork").then(m => ({ default: m.NeuralNetworkBackground })));
 import { ArrowRight, Mail } from "lucide-react";
 
 import { useEffect, useState } from "react";
 import Reveal from "@/components/Reveal";
 
 export default function Hero() {
-  const typewriterText =
-    "Crafting intelligent solutions at the intersection of data, AI, and futuristic innovation, shaping smarter systems that redefine how we interact with technology.";
-  const [displayed, setDisplayed] = useState("");
-  useEffect(() => {
-    let i = 0;
-    const interval = setInterval(() => {
-      setDisplayed(typewriterText.slice(0, i + 1));
-      i++;
-      if (i === typewriterText.length) clearInterval(interval);
-  }, 2);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section
       id="home"
       className="section relative min-h-[92vh] flex items-center"
     >
-      <NeuralNetworkBackground count={280} radius={1.8} />
+      <Suspense fallback={<div className="absolute inset-0 -z-10 bg-background" />}>
+  <NeuralNetworkBackground count={180} radius={1.8} />
+      </Suspense>
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(60%_40%_at_50%_0%,hsla(var(--neon-blue),0.08),transparent)]" />
       <div className="relative z-10 container">
         <Reveal className="max-w-3xl">
@@ -34,8 +24,7 @@ export default function Hero() {
             </span>
           </h1>
           <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl min-h-[4.5rem]">
-            {displayed}
-            {displayed.length < typewriterText.length && <span className="animate-pulse">|</span>}
+            Crafting intelligent solutions at the intersection of data, AI, and futuristic innovation, shaping smarter systems that redefine how we interact with technology.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a href="#projects" className="neon-btn">

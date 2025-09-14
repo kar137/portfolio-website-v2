@@ -1,7 +1,7 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Line, PointMaterial, Points } from "@react-three/drei";
 import * as THREE from "three";
-import { useMemo, useRef } from "react";
+import { useMemo, useRef, useState, useEffect } from "react";
 
 function genSpherePoints(count: number, radius: number) {
   const pts: THREE.Vector3[] = [];
@@ -23,12 +23,13 @@ function genSpherePoints(count: number, radius: number) {
 }
 
 function nearestNeighbors(points: THREE.Vector3[], k = 3) {
-  const edges: [THREE.Vector3, THREE.Vector3][] = [];
-  for (let i = 0; i < points.length; i++) {
-    const dists = points.map((p, idx) => ({ idx, d: points[i].distanceTo(p) }));
-    dists.sort((a, b) => a.d - b.d);
-    for (let j = 1; j <= k; j++) edges.push([points[i], points[dists[j].idx]]);
+  // Connect all points sequentially for a full network
+  const edges: [THREE.Vector3, THREE.Vector3, number][] = [];
+  for (let i = 0; i < points.length - 1; i++) {
+    edges.push([points[i], points[i + 1], i]);
   }
+  // Optionally, connect last to first for a closed loop
+  // edges.push([points[points.length - 1], points[0], points.length - 1]);
   return edges;
 }
 
@@ -50,22 +51,54 @@ function Network({
     });
     return arr;
   }, [pts]);
-  const links = useMemo(() => nearestNeighbors(pts, 2), [pts]);
 
-  useFrame(({ clock, mouse }) => {
+  // Animated links state
+  const [visibleLinks, setVisibleLinks] = useState(0);
+  useEffect(() => {
+    setVisibleLinks(0);
+    let frame = 0;
+    const interval = setInterval(() => {
+      frame++;
+      if (frame <= count - 1) {
+        setVisibleLinks(frame);
+      } else if (frame === count) {
+        // Connect last to first for circle
+        setVisibleLinks(count);
+      } else {
+        clearInterval(interval);
+      }
+    }, 60); // Slow speed
+    return () => clearInterval(interval);
+  }, [count]);
+
+  const links = useMemo(() => {
+    const arr = [];
+    for (let i = 0; i < Math.min(visibleLinks, count - 1); i++) {
+      arr.push([pts[i], pts[i + 1]]);
+    }
+    // Add circular link at end
+    if (visibleLinks === count) {
+      arr.push([pts[count - 1], pts[0]]);
+    }
+    return arr;
+  }, [pts, count, visibleLinks]);
+
+  useFrame(({ clock }) => {
     if (!group.current) return;
     const t = clock.getElapsedTime();
     group.current.rotation.y = t * 0.06;
     group.current.rotation.x = Math.sin(t * 0.2) * 0.08;
   });
 
+  // Color gradient for mysterious effect
+  const colors = ["#38bdf8", "#a78bfa", "#f472b6", "#c026d3", "#22d3ee"];
   return (
     <group ref={group}>
       <Points positions={pos} stride={3} frustumCulled={false}>
         <PointMaterial
           transparent
-          color="#22d3ee"
-          size={0.02}
+          color="#38bdf8"
+          size={0.03}
           sizeAttenuation
           depthWrite={false}
         />
@@ -74,10 +107,10 @@ function Network({
         <Line
           key={i}
           points={[l[0], l[1]]}
-          color="#a78bfa"
+          color={colors[i % colors.length]}
           transparent
-          opacity={0.35}
-          lineWidth={1}
+          opacity={0.38}
+          lineWidth={1.2}
         />
       ))}
     </group>
