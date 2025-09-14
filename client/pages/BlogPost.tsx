@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useContent } from "@/store/content";
 
@@ -5,6 +6,15 @@ export default function BlogPost() {
   const { id } = useParams<{ id: string }>();
   const { posts } = useContent();
   const post = posts.find((p) => p.id === id);
+
+  useEffect(() => {
+    // Ensure we start at the top when navigating to a blog post
+    try {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    } catch (e) {
+      // ignore in non-browser environments
+    }
+  }, [id]);
 
   if (!post) {
     return (
