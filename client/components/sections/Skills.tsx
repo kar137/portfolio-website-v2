@@ -1,5 +1,33 @@
 import { Code2, Brain, Wrench, Cloud, ArrowRight } from "lucide-react";
 import { ArrowLeft } from "lucide-react";
+import { FaPython, FaJs, FaHtml5, FaCss3Alt, FaJava, FaReact, FaDocker, FaGitAlt, FaGithub, FaDatabase } from "react-icons/fa";
+import { SiDjango, SiFastapi, SiFlask, SiTailwindcss, SiPostgresql, SiMysql, SiSqlite, SiPytorch, SiTensorflow, SiHuggingface, SiLangchain, SiPostman, SiAnaconda } from "react-icons/si";
+// Skill icon mapping
+const skillIcons: Record<string, React.ReactNode> = {
+  Python: <FaPython className="text-[#3776AB]" />,
+  JavaScript: <FaJs className="text-[#F7DF1E]" />,
+  HTML5: <FaHtml5 className="text-[#E34F26]" />,
+  CSS3: <FaCss3Alt className="text-[#1572B6]" />,
+  Java: <FaJava className="text-[#007396]" />,
+  Django: <SiDjango className="text-[#092E20]" />,
+  "Django REST Framework": <SiDjango className="text-[#092E20]" />,
+  FastAPI: <SiFastapi className="text-[#009688]" />,
+  Flask: <SiFlask className="text-[#000000]" />,
+  "Tailwind CSS": <SiTailwindcss className="text-[#38BDF8]" />,
+  PostgreSQL: <SiPostgresql className="text-[#336791]" />,
+  MySQL: <SiMysql className="text-[#4479A1]" />,
+  SQLite: <SiSqlite className="text-[#003B57]" />,
+  PyTorch: <SiPytorch className="text-[#EE4C2C]" />,
+  TensorFlow: <SiTensorflow className="text-[#FF6F00]" />,
+  Transformers: <SiHuggingface className="text-[#FFD21A]" />,
+  "Hugging Face": <SiHuggingface className="text-[#FFD21A]" />,
+  "LangChain / NLP": <SiLangchain className="text-[#00B4B3]" />,
+  Docker: <FaDocker className="text-[#2496ED]" />,
+  Git: <FaGitAlt className="text-[#F05032]" />,
+  GitHub: <FaGithub className="text-[#181717]" />,
+  Postman: <SiPostman className="text-[#FF6C37]" />,
+  Anaconda: <SiAnaconda className="text-[#44A833]" />,
+};
 import React from "react";
 import { useRef } from "react";
 import Reveal from "@/components/Reveal";
@@ -86,8 +114,7 @@ export default function Skills() {
         <div className="relative mt-8 group">
           {showLeft && (
             <button
-              className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-xl neon-outline rounded-full p-2 shadow-lg hover:scale-105 transition"
-              style={{ zIndex: 2 }}
+              className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-xl neon-outline rounded-full p-2 shadow-lg hover:scale-105 transition z-20"
               aria-label="Scroll left"
               onClick={scrollLeft}
             >
@@ -96,8 +123,7 @@ export default function Skills() {
           )}
           <div
             ref={scrollRef}
-            className="flex gap-6 overflow-x-auto pb-2 scrollbar-none"
-            style={{ scrollBehavior: "smooth" }}
+            className="flex gap-6 overflow-x-auto pb-2 scrollbar-none scroll-smooth"
           >
             {categories.map((cat) => {
               const Icon = cat.icon;
@@ -122,8 +148,10 @@ export default function Skills() {
                             key={s}
                             className="text-sm text-muted-foreground flex items-center gap-2"
                           >
-                            <span className="h-1.5 w-1.5 rounded-full bg-neon-cyan inline-block" />
-                            <span className="hover:text-white transition">
+                            <span className="inline-flex items-center justify-center h-8 w-8 rounded bg-gradient-to-br from-blue-100 via-blue-50 to-white border border-blue-200 shadow-lg mr-1 transition-transform hover:scale-110 hover:border-blue-400 hover:shadow-xl">
+                              {skillIcons[s] || <FaDatabase className="h-7 w-7 text-neon-cyan" />}
+                            </span>
+                            <span className="hover:text-white transition font-medium">
                               {s}
                             </span>
                           </li>
@@ -137,8 +165,7 @@ export default function Skills() {
           </div>
           {showRight && (
             <button
-              className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-xl neon-outline rounded-full p-2 shadow-lg hover:scale-105 transition"
-              style={{ zIndex: 2 }}
+              className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-xl neon-outline rounded-full p-2 shadow-lg hover:scale-105 transition z-20"
               aria-label="Scroll right"
               onClick={scrollRight}
             >
