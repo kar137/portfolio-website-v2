@@ -123,7 +123,7 @@ export default function Contact() {
               <div className="mt-6 grid grid-cols-2 gap-4">
                   <a
                     className="neon-outline border-github flex items-center justify-center gap-2"
-                    href="https://github.com/"
+                    href="https://github.com/kar137"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -131,7 +131,7 @@ export default function Contact() {
                   </a>
                   <a
                     className="neon-outline border-linkedin flex items-center justify-center gap-2"
-                    href="https://www.linkedin.com/"
+                    href="https://www.linkedin.com/in/karanbista"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -139,7 +139,7 @@ export default function Contact() {
                   </a>
                   <a
                     className="neon-outline border-twitter flex items-center justify-center gap-2"
-                    href="https://twitter.com/"
+                    href="https://x.com/KaranBista47908"
                     target="_blank"
                     rel="noreferrer"
                   >

@@ -5,9 +5,11 @@ export type Project = {
   image: string;
   technologies: string[];
   tags?: string[];
+  githubUrl?: string;
 };
 
 import Reveal from "@/components/Reveal";
+import { Github } from "lucide-react";
 import React from "react";
 
 export default function Projects({ projects }: { projects: Project[] }) {
@@ -89,6 +91,19 @@ export default function Projects({ projects }: { projects: Project[] }) {
                         </span>
                       ))}
                     </div>
+                    {p.githubUrl && (
+                      <a
+                        href={p.githubUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="neon-outline mt-3 inline-flex items-center gap-2 px-3 py-1 rounded border-2 border-neon-blue hover:bg-neon-blue/10 transition"
+                      >
+                        <span className="flex items-center justify-center h-7 w-7 rounded-full border-2 border-neon-blue bg-background shadow-md hover:scale-105 transition">
+                          <Github className="h-5 w-5 text-neon-blue" />
+                        </span>
+                        <span className="font-semibold text-neon-blue text-sm">GitHub</span>
+                      </a>
+                    )}
                   </div>
                   <div
                     className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-radial-neon"

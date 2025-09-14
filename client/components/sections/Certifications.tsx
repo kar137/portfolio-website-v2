@@ -20,7 +20,7 @@ export default function Certifications() {
       issuer: "DataCamp",
       date: "2025-07-01",
       logoUrl: "/datacamp-logo.png",
-      link: "https://www.datacamp.com/certificate/AIF0021547927731",
+      link: "https://www.datacamp.com/skill-verification/AIF0021547927731",
     },
     {
       id: "2",
@@ -28,7 +28,7 @@ export default function Certifications() {
       issuer: "IBM",
       date: "2025-07-01",
       logoUrl: "/ibm-logo.png",
-      link: "https://www.ibm.com/certificate/f5647fae0eca4495a0bd463918672bdc",
+      link: "https://www.credly.com/badges/851717e9-efdb-4144-8e43-c5d694388e51/linked_in_profile",
     },
     {
       id: "3",
@@ -36,7 +36,7 @@ export default function Certifications() {
       issuer: "IBM",
       date: "2025-07-01",
       logoUrl: "/ibm-logo.png",
-      link: "https://www.ibm.com/certificate/47691e9a-256a-438b-8c48-fc5d8a3de8d5",
+      link: "https://www.credly.com/badges/851717e9-efdb-4144-8e43-c5d694388e51/linked_in_profile",
     },
     {
       id: "4",
