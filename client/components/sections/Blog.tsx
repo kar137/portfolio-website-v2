@@ -22,7 +22,7 @@ export default function Blog({ posts }: { posts: BlogPost[] }) {
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {posts.map((b) => (
             <Reveal key={b.id}>
-              <article className="glass rounded-xl overflow-hidden border-glass-border">
+              <article className="glass rounded-xl overflow-hidden border-border">
                 <Link to={`/blog/${b.id}`}>
                   <img
                     src={b.image}

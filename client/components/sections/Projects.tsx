@@ -23,7 +23,7 @@ export default function Projects({ projects }: { projects: Project[] }) {
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((p) => (
             <Reveal key={p.id}>
-              <article className="relative overflow-hidden rounded-xl glass border-glass-border shadow-card group">
+              <article className="relative overflow-hidden rounded-xl glass border-border shadow-card group">
                 <div className="aspect-video w-full overflow-hidden">
                   <img
                     src={p.image}

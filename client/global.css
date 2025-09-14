@@ -44,7 +44,7 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 240 20% 20%;
+  --border: 220 100% 70%; /* Bright neon blue */
     --input: 240 20% 20%;
     --ring: var(--neon-blue);
 
@@ -126,7 +126,7 @@
 
 @layer components {
   .glass {
-    @apply bg-glass border border-glass-border backdrop-blur-xl;
+  @apply bg-glass border border-border backdrop-blur-xl;
   }
   .neon-btn {
     @apply relative inline-flex items-center justify-center rounded-lg px-6 py-3 font-semibold tracking-wide text-slate-900 transition;
@@ -145,8 +145,8 @@
     transform: translateY(-1px);
   }
   .neon-outline {
-    @apply relative inline-flex items-center justify-center rounded-lg px-6 py-3 font-semibold tracking-wide text-white transition border;
-    border-color: hsla(var(--neon-cyan), 0.6);
+  @apply relative inline-flex items-center justify-center rounded-lg px-6 py-3 font-semibold tracking-wide text-white transition border border-border;
+  border-color: hsl(var(--border));
     background: linear-gradient(
       180deg,
       hsla(var(--neon-blue), 0.08),

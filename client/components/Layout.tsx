@@ -27,11 +27,11 @@ function Header() {
   ];
   return (
     <header className="sticky top-0 z-50">
-      <div className="backdrop-blur-xl border-b border-glass-border/60 glass">
+  <div className="backdrop-blur-xl border-b border-border glass">
         <div className="container flex items-center justify-between py-3">
           <Link
             to="/"
-            className="font-extrabold text-lg tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-neon-cyan via-neon-purple to-neon-pink"
+            className="font-extrabold text-lg tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-neon-cyan via-neon-purple to-neon-pink border-0"
           >
             Karan Bista
           </Link>
@@ -56,7 +56,7 @@ function Header() {
         </div>
       </div>
       {open && (
-        <div className="md:hidden glass border-b border-glass-border">
+  <div className="md:hidden glass border-b border-border">
           <div className="container py-3 grid gap-2">
             {nav.map((n) => (
               <a
@@ -77,7 +77,7 @@ function Header() {
 
 function Footer() {
   return (
-    <footer className="mt-20 border-t border-glass-border/60">
+  <footer className="mt-20 border-t border-border">
       <div className="container py-10 text-sm text-muted-foreground flex items-center justify-between flex-wrap gap-3">
         <p>© {new Date().getFullYear()} Karan Bista. All rights reserved.</p>
         <p>Built with modern web + AI/ML aesthetics.</p>
