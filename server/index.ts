@@ -19,5 +19,8 @@ export function createServer() {
 
   app.get("/api/demo", handleDemo);
 
+  // Contact route
+  app.post("/api/contact", require("./routes/contact").handleContact);
+
   return app;
 }

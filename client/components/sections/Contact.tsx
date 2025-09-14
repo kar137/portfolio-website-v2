@@ -1,5 +1,5 @@
 import { Github, Linkedin, Twitter, Mail } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import Reveal from "@/components/Reveal";
 
@@ -20,29 +20,54 @@ export default function Contact() {
     return () => el.removeEventListener("mousemove", handler);
   }, []);
 
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState<string | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStatus("✨ Ping received! I’ll decode it and get back to you shortly. Thanks for connecting!");
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        setStatus(data.error || "Failed to send message");
+      }
+    } catch {
+      setStatus("Failed to send message");
+    }
+  };
+
   return (
     <section id="contact" className="section">
       <div className="container">
         <Reveal>
-          <h2 className="section-title">Contact</h2>
+          <h2 className="section-title">Send Me a Neural Ping</h2>
         </Reveal>
         <div ref={ref} className="relative mt-8 grid md:grid-cols-2 gap-8">
           <Reveal>
             <div className="holo-card">
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  alert("Thanks, I'll be in touch!");
-                }}
-                className="space-y-5"
-              >
+              <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                  <label className="text-sm text-muted-foreground">Name</label>
+                  <label className="text-sm text-muted-foreground">Your alias or real name</label>
                   <input
                     required
                     type="text"
+                    name="name"
+                    value={form.name}
+                    onChange={handleChange}
                     className="mt-1 w-full rounded-lg bg-transparent border border-neon-cyan/40 px-3 py-2 outline-none focus:ring-2 focus:ring-neon-cyan/40"
-                    placeholder="Your name"
+                    placeholder="Your alias or real name"
                   />
                 </div>
                 <div>
@@ -50,24 +75,33 @@ export default function Contact() {
                   <input
                     required
                     type="email"
+                    name="email"
+                    value={form.email}
+                    onChange={handleChange}
                     className="mt-1 w-full rounded-lg bg-transparent border border-neon-cyan/40 px-3 py-2 outline-none focus:ring-2 focus:ring-neon-cyan/40"
                     placeholder="you@example.com"
                   />
                 </div>
                 <div>
-                  <label className="text-sm text-muted-foreground">
-                    Message
-                  </label>
+                  <label className="text-sm text-muted-foreground">Message</label>
                   <textarea
                     required
+                    name="message"
+                    value={form.message}
+                    onChange={handleChange}
                     rows={4}
                     className="mt-1 w-full rounded-lg bg-transparent border border-neon-cyan/40 px-3 py-2 outline-none focus:ring-2 focus:ring-neon-cyan/40"
-                    placeholder="Tell me about your project"
+                    placeholder="Tell me about your project, idea, or let’s chat over coffee ☕"
                   />
                 </div>
                 <button className="neon-btn w-full" type="submit">
-                  Send
+                  Beam It Up 🚀
                 </button>
+                {status && (
+                  <div className="mt-4 text-center text-neon-cyan font-semibold">
+                    {status}
+                  </div>
+                )}
               </form>
             </div>
           </Reveal>
