@@ -7,8 +7,8 @@ export default function About() {
       <div className="container grid md:grid-cols-2 gap-10 items-center">
         <div className="order-2 md:order-1">
           <h2 className="section-title">About Me</h2>
-          <p className="mt-4 text-muted-foreground text-lg">
-            Crafting intelligent solutions at the intersection of data, AI, and futuristic innovation, shaping smarter systems that redefine how we interact with technology.
+           <p className="mt-3 text-muted-foreground max-w-2xl">
+             I’m Karan Bista, an AI/ML developer passionate about building intelligent systems that power products with predictive insights, generative AI experiences, and scalable data-driven pipelines. My work bridges innovation with practicality, turning advanced models into solutions that truly deliver value.
           </p>
           <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
             <li className="holo-card">

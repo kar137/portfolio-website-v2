@@ -5,7 +5,12 @@ import type { Project } from "@/components/sections/Projects";
 import type { Certification } from "@/components/sections/Certifications";
 import type { BlogPost } from "@/components/sections/Blog";
 
-const ADMIN_FLAG = "admin.authed";
+function Label({ children }: { children: string }) {
+  return <label className="text-sm text-muted-foreground">{children}</label>;
+}
+
+// Constants for admin flag and password
+const ADMIN_FLAG = "admin_flag";
 const ADMIN_PASS = import.meta.env.VITE_ADMIN_PASS || "admin";
 
 export default function AdminPage() {
@@ -35,12 +40,12 @@ export default function AdminPage() {
           }}
         >
           <div>
-            <label className="text-sm text-muted-foreground">Password</label>
-            <input
+            <Label>Password</Label>
+            <Input
               type="password"
-              className="mt-1 w-full rounded-lg bg-transparent border border-neon-cyan/40 px-3 py-2 outline-none focus:ring-2 focus:ring-neon-cyan/40"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter admin password"
             />
           </div>
           <button className="neon-btn w-full" type="submit">
@@ -89,21 +94,62 @@ export default function AdminPage() {
           />
         </TabsContent>
         <TabsContent value="blog">
-          <BlogForm
-            onSubmit={(vals) =>
-              content.addPost({ id: crypto.randomUUID(), ...vals })
-            }
-          />
+          <BlogAdmin content={content} />
         </TabsContent>
       </Tabs>
     </div>
   );
 }
 
-function Label({ children }: { children: string }) {
-  return <label className="text-sm text-muted-foreground">{children}</label>;
-}
+function BlogAdmin({ content }: { content: any }) {
+  const [editing, setEditing] = useState<any>(null);
+  const [confirmDelete, setConfirmDelete] = useState<any>(null);
+  const posts = content.posts || [];
 
+  return (
+    <div className="mt-6">
+      <h3 className="font-semibold text-lg mb-2">Existing Blog Posts</h3>
+      <ul className="space-y-3 mb-8">
+        {posts.length === 0 && <li className="text-muted-foreground">No posts yet.</li>}
+        {posts.map((post: any) => (
+          <li key={post.id} className="bg-background rounded-lg p-4 shadow flex flex-col md:flex-row md:items-center justify-between gap-2">
+            <div>
+              <div className="font-bold text-base">{post.title}</div>
+              <div className="text-xs text-muted-foreground">{post.date} &middot; {post.tags?.join(", ")}</div>
+            </div>
+            <div className="flex gap-2 mt-2 md:mt-0">
+              <button className="neon-outline px-3 py-1 text-xs" onClick={() => setEditing(post)}>Edit</button>
+              <button className="neon-btn px-3 py-1 text-xs bg-red-600 hover:bg-red-700" onClick={() => setConfirmDelete(post.id)}>Delete</button>
+            </div>
+          </li>
+        ))}
+      </ul>
+      {confirmDelete && (
+        <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded">
+          <div className="mb-2">Are you sure you want to delete this post?</div>
+          <button className="neon-btn bg-red-600 hover:bg-red-700 mr-2" onClick={() => { content.deletePost(confirmDelete); setConfirmDelete(null); }}>Delete</button>
+          <button className="neon-outline" onClick={() => setConfirmDelete(null)}>Cancel</button>
+        </div>
+      )}
+      <BlogForm
+        key={editing?.id || "new"}
+        initial={editing || undefined}
+        onSubmit={(vals: any) => {
+          if (editing) {
+            content.editPost({ ...editing, ...vals });
+            setEditing(null);
+          } else {
+            content.addPost({ id: crypto.randomUUID(), ...vals });
+          }
+        }}
+      />
+      {editing && (
+        <button className="neon-outline mt-2" onClick={() => setEditing(null)}>Cancel Edit</button>
+      )}
+    </div>
+  );
+}
+// Remove stray closing tags after BlogAdmin
 function Input(props: React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <input
@@ -272,16 +318,18 @@ function CertForm({
 }
 
 function BlogForm({
+  initial,
   onSubmit,
 }: {
+  initial?: BlogPost;
   onSubmit: (vals: Omit<BlogPost, "id">) => void;
 }) {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [image, setImage] = useState("/placeholder.svg");
-  const [date, setDate] = useState("");
-  const [tags, setTags] = useState("");
-  const [content, setContent] = useState("");
+  const [title, setTitle] = useState(initial?.title || "");
+  const [description, setDescription] = useState(initial?.description || "");
+  const [image, setImage] = useState(initial?.image || "/placeholder.svg");
+  const [date, setDate] = useState(initial?.date || "");
+  const [tags, setTags] = useState(initial?.tags?.join(", ") || "");
+  const [content, setContent] = useState(initial?.content || "");
   return (
     <form
       className="grid gap-4 md:grid-cols-2 mt-6"

@@ -11,6 +11,8 @@ export type ContentState = {
   addProject: (p: Project) => void;
   addCert: (c: Certification) => void;
   addPost: (p: BlogPost) => void;
+  editPost: (p: BlogPost) => void;
+  deletePost: (id: string) => void;
 };
 
 const Ctx = createContext<ContentState | null>(null);
@@ -47,6 +49,8 @@ export function ContentProvider({ children }: { children: React.ReactNode }) {
       addProject: (p) => setProjects((prev) => [p, ...prev]),
       addCert: (c) => setCerts((prev) => [c, ...prev]),
       addPost: (p) => setPosts((prev) => [p, ...prev]),
+      editPost: (p) => setPosts((prev) => prev.map((post) => post.id === p.id ? p : post)),
+      deletePost: (id) => setPosts((prev) => prev.filter((post) => post.id !== id)),
     }),
     [projects, certs, posts],
   );
