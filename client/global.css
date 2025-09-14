@@ -1,3 +1,6 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;600;700;800&display=swap");
+/** @import must precede all other statements */
 @layer utilities {
   .bg-radial-neon {
     background: radial-gradient(40%_40%_at_60%_0%, hsla(var(--neon-pink),0.22), transparent 60%);
@@ -14,8 +17,6 @@
 .scrollbar-none::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
-/** @import must precede all other statements */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
