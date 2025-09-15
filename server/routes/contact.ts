@@ -1,6 +1,7 @@
-
 import sgMail from "@sendgrid/mail";
+import type { Request, Response } from "express";
 
+export async function handleContact(req: Request, res: Response) {
   const { name, email, message } = req.body;
   if (!name || !email || !message) {
     console.error("Contact form error: missing fields", { name, email, message });
@@ -29,4 +30,5 @@ import sgMail from "@sendgrid/mail";
     console.error("SendGrid error:", err);
     res.status(500).json({ error: err && err.message ? err.message : "Failed to send email" });
   }
+}
 }
