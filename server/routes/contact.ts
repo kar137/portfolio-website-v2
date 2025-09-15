@@ -1,36 +1,32 @@
 
-import { Resend } from "resend";
+import sgMail from "@sendgrid/mail";
 
-export async function handleContact(req: Request, res: Response) {
   const { name, email, message } = req.body;
   if (!name || !email || !message) {
     console.error("Contact form error: missing fields", { name, email, message });
     return res.status(400).json({ error: "Missing required fields" });
   }
 
-  const apiKey = process.env.RESEND_API_KEY || "re_Nu8wzWPc_JMvjDPhYfnbe2UuLejiUumAH";
+  const apiKey = process.env.SENDGRID_API_KEY || "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";
   if (!apiKey) {
-    console.error("Contact form error: RESEND_API_KEY missing");
+    console.error("Contact form error: SENDGRID_API_KEY missing");
     return res.status(500).json({ error: "Email service misconfigured: missing API key" });
   }
-  const resend = new Resend(apiKey);
+  sgMail.setApiKey(apiKey);
+
+  const msg = {
+    to: "bistak297@gmail.com", // Your receiving email
+    from: "Portfolio Contact <bistak297@gmail.com>", // Verified sender
+    replyTo: email,
+    subject: `New message from ${name}`,
+    html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong><br/>${message}</p>`
+  };
 
   try {
-    const result = await resend.emails.send({
-      from: "Portfolio Contact <bistak297@gmail.com>",
-      to: "bistak297@gmail.com",
-      subject: `New message from ${name}`,
-  replyTo: email,
-      html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong><br/>${message}</p>`
-    });
-    console.log("Resend API result:", result);
-    if (result.error) {
-      console.error("Resend API error:", result.error);
-      return res.status(500).json({ error: result.error });
-    }
+    await sgMail.send(msg);
     res.json({ success: true });
   } catch (err: any) {
-    console.error("Resend exception:", err);
+    console.error("SendGrid error:", err);
     res.status(500).json({ error: err && err.message ? err.message : "Failed to send email" });
   }
 }
