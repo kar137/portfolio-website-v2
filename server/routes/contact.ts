@@ -1,5 +1,5 @@
-import type { Request, Response } from "express";
-import nodemailer from "nodemailer";
+
+import { Resend } from "resend";
 
 export async function handleContact(req: Request, res: Response) {
   const { name, email, message } = req.body;
@@ -7,32 +7,19 @@ export async function handleContact(req: Request, res: Response) {
     return res.status(400).json({ error: "Missing required fields" });
   }
 
-  // Configure SMTP transport
-  const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
-    },
-    tls: {
-      rejectUnauthorized: false,
-    },
-  });
+  const resend = new Resend(process.env.RESEND_API_KEY || "re_Nu8wzWPc_JMvjDPhYfnbe2UuLejiUumAH");
 
   try {
-    await transporter.sendMail({
-      from: `Portfolio Contact <${process.env.SMTP_USER}>`,
+    await resend.emails.send({
+      from: "Portfolio Contact <bistak297@gmail.com>",
       to: "bistak297@gmail.com",
       subject: `New message from ${name}`,
-      replyTo: email,
-      text: message,
+      reply_to: email,
       html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong><br/>${message}</p>`
     });
-  res.json({ success: true });
-  } catch (err) {
-    console.error("SMTP error:", err);
+    res.json({ success: true });
+  } catch (err: any) {
+    console.error("Resend error:", err);
     res.status(500).json({ error: err && err.message ? err.message : "Failed to send email" });
   }
 }
