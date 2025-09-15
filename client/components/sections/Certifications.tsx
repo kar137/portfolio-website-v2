@@ -13,6 +13,24 @@ import { useRef, useState, useEffect } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 export default function Certifications() {
+  const [showSwipeRight, setShowSwipeRight] = useState(false);
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
+  useEffect(() => {
+    if (!isMobile) return;
+    const el = scrollRef.current;
+    if (!el) return;
+    const handleScroll = () => {
+      setShowSwipeRight(true);
+      clearTimeout((handleScroll as any).timer);
+      (handleScroll as any).timer = setTimeout(() => setShowSwipeRight(false), 1200);
+    };
+    el.addEventListener("scroll", handleScroll);
+    return () => {
+      el.removeEventListener("scroll", handleScroll);
+      clearTimeout((handleScroll as any).timer);
+    };
+  }, [isMobile]);
   const certs = [
     {
       id: "1",
@@ -102,6 +120,17 @@ export default function Certifications() {
             >
               <ArrowLeft className="h-6 w-6 text-neon-purple" />
             </button>
+          )}
+          {showSwipeRight && (
+            <div
+              className="absolute right-0 top-1/3 -translate-y-1/2 z-30 animate-bounce pointer-events-none"
+            >
+              <span className="bg-gradient-to-br from-indigo-400 via-blue-300 to-white rounded-full p-1 shadow border border-indigo-300 flex items-center justify-center swipe-indicator">
+                <svg width="18" height="18" fill="none" stroke="#6366f1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M6 4l6 5-6 5" />
+                </svg>
+              </span>
+            </div>
           )}
           <div
             ref={scrollRef}
