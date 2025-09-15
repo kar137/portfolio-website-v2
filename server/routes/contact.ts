@@ -31,4 +31,3 @@ export async function handleContact(req: Request, res: Response) {
     res.status(500).json({ error: err && err.message ? err.message : "Failed to send email" });
   }
 }
-}
