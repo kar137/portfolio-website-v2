@@ -16,7 +16,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   const msg = {
-    to: 'bistak297@gmail.com',
+  to: 'bistakaran89@gmail.com',
     from: 'Portfolio Contact <bistak297@gmail.com>',
     replyTo: email,
     subject: `New message from ${name}`,
