@@ -28,8 +28,8 @@ export default function Index() {
       <Skills />
       <Experience />
       <Education />
-      <Projects projects={projects} />
-      <Certifications items={certs} />
+  <Projects projects={projects} />
+  <Certifications />
       <Blog posts={posts} />
       <Contact />
     </main>

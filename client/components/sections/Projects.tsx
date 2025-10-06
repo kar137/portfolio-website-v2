@@ -84,7 +84,7 @@ export default function Projects({ projects }: { projects: Project[] }) {
             ref={scrollRef}
             className="flex gap-6 overflow-x-auto pb-2 scrollbar-none scroll-smooth relative"
           >
-            {showSwipeRight && (
+            {isMobile && (
               <div
                 className="absolute right-0 top-1/3 -translate-y-1/2 z-30 animate-bounce pointer-events-none"
               >

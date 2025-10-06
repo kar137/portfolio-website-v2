@@ -236,6 +236,7 @@ function BlogForm({
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("/placeholder.svg");
   const [date, setDate] = useState("");
+  const [content, setContent] = useState("");
   const [tags, setTags] = useState("");
   return (
     <form
@@ -246,6 +247,7 @@ function BlogForm({
           title,
           description,
           image,
+          content,
           date,
           tags: tags
             .split(",")
@@ -293,6 +295,15 @@ function BlogForm({
           value={tags}
           onChange={(e) => setTags(e.target.value)}
           placeholder="LLMs, RAG, MLOps"
+        />
+      </div>
+      <div className="md:col-span-2">
+        <Label>Content</Label>
+        <Textarea
+          rows={4}
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          placeholder="Full post content (markdown)"
         />
       </div>
       <div className="md:col-span-2">

@@ -121,7 +121,7 @@ export default function Certifications() {
               <ArrowLeft className="h-6 w-6 text-neon-purple" />
             </button>
           )}
-          {showSwipeRight && (
+          {isMobile && (
             <div
               className="absolute right-0 top-1/3 -translate-y-1/2 z-30 animate-bounce pointer-events-none"
             >
