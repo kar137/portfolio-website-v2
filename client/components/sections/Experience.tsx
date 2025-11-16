@@ -1,12 +1,18 @@
-
 const items = [
+  {
+    company: "Bhoomivardhan Agritech",
+    role: "AI/ML Intern",
+    period: "Oct 2025 — Present",
+    details:
+      "Developed machine learning models for crop yield prediction and disease detection, contributed to data collection and preprocessing, and supported deployment of AI solutions for agricultural optimization.",
+  },
   {
     company: "Fusemachines",
     role: "AI Fellow",
-    period: "April 2025 — Present",
+    period: "April 2025 — Nov 2025",
     details:
-      "Worked on cutting-edge AI/ML projects including LLM-powered applications, NLP pipelines, and AI-driven analytics, contributing to research, prototyping, and deployment of intelligent systems."
-  }
+      "Worked on cutting-edge AI/ML projects including LLM-powered applications, NLP pipelines, and AI-driven analytics, contributing to research, prototyping, and deployment of intelligent systems.",
+  },
 ];
 
 import Reveal from "@/components/Reveal";

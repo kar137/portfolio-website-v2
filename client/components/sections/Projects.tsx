@@ -9,8 +9,9 @@ export type Project = {
 };
 
 import Reveal from "@/components/Reveal";
-import { Github } from "lucide-react";
+import { Github, Eye } from "lucide-react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Projects({ projects }: { projects: Project[] }) {
   const [showSwipeRight, setShowSwipeRight] = React.useState(false);
@@ -97,47 +98,60 @@ export default function Projects({ projects }: { projects: Project[] }) {
             )}
             {projects.map((p) => (
               <Reveal key={p.id}>
-                <article className="holo-card min-w-[19rem] max-w-[22rem] overflow-hidden relative hover:z-10">
-                  <div className="aspect-video w-full overflow-hidden">
-                    <img
-                      src={p.image}
-                      alt={p.title}
-                      className="h-full w-full object-cover group-hover:scale-105 transition"
-                    />
-                  </div>
-                  <div className="p-5">
-                    <h3 className="text-lg font-semibold">{p.title}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
-                      {p.description}
-                    </p>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {p.technologies.map((t) => (
-                        <span
-                          key={t}
-                          className="text-[11px] px-2 py-1 rounded-full bg-neon-purple/10 text-neon-purple border border-neon-purple/30"
-                        >
-                          {t}
-                        </span>
-                      ))}
+                <Link to={`/project/${p.id}`} style={{ textDecoration: "none" }}>
+                  <article className="holo-card min-w-[19rem] max-w-[22rem] overflow-hidden relative hover:z-10 cursor-pointer">
+                    <div className="aspect-video w-full overflow-hidden">
+                      <img
+                        src={p.image}
+                        alt={p.title}
+                        className="h-full w-full object-cover group-hover:scale-105 transition"
+                      />
                     </div>
-                    {p.githubUrl && (
-                      <a
-                        href={p.githubUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="neon-outline mt-3 inline-flex items-center gap-2 px-3 py-1 rounded border-2 border-neon-blue hover:bg-neon-blue/10 transition"
-                      >
-                        <span className="flex items-center justify-center h-7 w-7 rounded-full border-2 border-neon-blue bg-background shadow-md hover:scale-105 transition">
-                          <Github className="h-5 w-5 text-neon-blue" />
-                        </span>
-                        <span className="font-semibold text-neon-blue text-sm">GitHub</span>
-                      </a>
-                    )}
-                  </div>
-                  <div
-                    className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-radial-neon"
-                  />
-                </article>
+                    <div className="p-5">
+                      <h3 className="text-lg font-semibold">{p.title}</h3>
+                      <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
+                        {p.description}
+                      </p>
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {p.technologies.map((t) => (
+                          <span
+                            key={t}
+                            className="text-[11px] px-2 py-1 rounded-full bg-neon-purple/10 text-neon-purple border border-neon-purple/30"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        <Link
+                          to={`/project/${p.id}`}
+                          className="neon-outline inline-flex items-center gap-2 px-3 py-1 rounded border-2 border-neon-blue hover:bg-neon-blue/10 transition"
+                        >
+                          <span className="flex items-center justify-center h-7 w-7 rounded-full border-2 border-neon-blue bg-background shadow-md hover:scale-105 transition">
+                            <Eye className="h-5 w-5 text-neon-blue" />
+                          </span>
+                          <span className="font-semibold text-neon-blue text-sm">View Project</span>
+                        </Link>
+                        {p.githubUrl && (
+                          <a
+                            href={p.githubUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="neon-outline inline-flex items-center gap-2 px-3 py-1 rounded border-2 border-neon-blue hover:bg-neon-blue/10 transition"
+                          >
+                            <span className="flex items-center justify-center h-7 w-7 rounded-full border-2 border-neon-blue bg-background shadow-md hover:scale-105 transition">
+                              <Github className="h-5 w-5 text-neon-blue" />
+                            </span>
+                            <span className="font-semibold text-neon-blue text-sm">GitHub</span>
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                    <div
+                      className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-radial-neon"
+                    />
+                  </article>
+                </Link>
               </Reveal>
             ))}
           </div>

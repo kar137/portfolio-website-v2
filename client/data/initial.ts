@@ -4,13 +4,159 @@ import type { BlogPost } from "@/components/sections/Blog";
 
 export const initialProjects: Project[] = [
   {
+    id: "sambodhan",
+    title: "Sambodhan: AI-Powered Grievance Redressal System for Local Governance",
+    description:
+      `Sambodhan is a comprehensive, full-stack platform designed to revolutionize citizen grievance management for local governments. By integrating advanced AI and modern web technologies, Sambodhan streamlines the entire lifecycle of complaint handling—from multi-channel submission to automated classification, real-time analytics, and continuous model improvement.
+
+Key Features:
+🌐 Multi-channel Grievance Submission: Citizens can file complaints via web and mobile, ensuring accessibility for all.
+🤖 AI-Powered Department Classification: State-of-the-art NLP models automatically route grievances to the correct municipal department.
+⚡ Urgency & Sentiment Detection: Instantly assesses complaint priority and tone for faster, more effective responses.
+💬 Integrated AI Chatbot: Provides conversational support, FAQs, and guided grievance submission using LLMs (Groq Llama-3.3-70B, XLM-RoBERTa).
+📊 Real-Time Analytics Dashboard: Offers interactive insights for both citizens and administrators, including response times, location hotspots, and resolution rates.
+🛠️ Admin Dashboard: Enables efficient tracking, management, and resolution of grievances.
+🔒 Secure Authentication: Implements JWT-based, context-aware user access for robust security.
+🧩 RESTful API: FastAPI backend supports seamless integration and modular expansion.
+🔄 Continuous Learning: Automated retraining and dataset preparation ensure models improve with real-world feedback.
+🐳 Dockerized Deployment: Simplifies setup for frontend, backend, and orchestrator services.
+🔁 CI/CD Automation: GitHub Actions streamline development, testing, and deployment.
+
+System Architecture:
+- Frontend: Next.js (React, TypeScript) SPA with dashboards for citizens, department admins, municipal admins, and super admins.
+- Backend: FastAPI RESTful API with modular routers for complaints, analytics, chatbot, and more.
+- ML Models: Transformer-based classifiers for department and urgency, leveraging Hugging Face and Groq LLMs.
+- Database: PostgreSQL for feedback, analytics, and retraining.
+- DevOps: Docker and GitHub Actions for scalable, automated deployment.
+
+Technical Highlights:
+- Modular codebase for scalability and maintainability.
+- Real-time integration with Retrieval-Augmented Generation (RAG) for accurate, document-grounded chatbot responses.
+- Secure, context-driven session management for personalized conversations.
+- Multi-language support (Nepali & English).
+
+Impact:
+Sambodhan empowers local governments to deliver transparent, efficient, and citizen-centric grievance redressal. By automating classification, prioritization, and analytics, it enables faster resolution, data-driven decision-making, and continuous improvement of public services.
+
+`,
+    image: "/project-images/sambodhan-logo.gif",
+    technologies: [
+      "Next.js",
+      "FastAPI",
+      "Python",
+      "Transformers",
+      "llama-3.3-70b",
+      "Docker",
+      "PostgreSQL"
+    ],
+    githubUrl: "https://github.com/kar137/Sambodhan_AI",
+  },
+
+  {
+    id: "p6",
+    title: "QueryPilot: Smart AI Docs Assistant",
+    description: `QueryPilot is a next-generation AI documentation assistant that transforms static documents into interactive knowledge bases using advanced RAG (Retrieval-Augmented Generation) and Google Gemini AI. It provides instant answers, smart booking, and a modern conversational UI for seamless document interaction.
+
+  Built with a modular, containerized architecture, QueryPilot is designed for extensibility and enterprise deployment. The backend leverages FastAPI and LangChain to orchestrate document ingestion, vector search, and conversational flows, while the Next.js frontend delivers a sleek, responsive user experience with real-time chat and booking forms. The system supports multi-format document uploads, context-aware Q&A, and persistent storage for both documents and appointments.
+
+  QueryPilot is ideal for teams, businesses, and organizations seeking to automate document analysis, streamline knowledge retrieval, and enable intelligent user interactions. Its robust error handling, multi-session support, and professional dark/light theme make it suitable for both internal and customer-facing use cases.
+
+  Key Features:
+  📄 Upload and analyze PDF, DOCX, and TXT documents
+  🧠 Precision RAG technology with FAISS-powered semantic search
+  💬 Real-time conversational UI with chat and typing indicators
+  🌗 Professional dark/light theme toggle
+  🗂️ Multi-format support and smart text chunking
+  🤖 AI-powered appointment booking and natural language forms
+  🛡️ Enterprise-ready, containerized architecture for scalable deployment
+  🧩 Context preservation and intelligent routing for accurate responses
+  🗃️ Persistent database integration for appointments and document vectors
+
+  Impact:
+  QueryPilot streamlines document management and knowledge retrieval for teams and enterprises, enabling instant Q&A, automated booking, and context-aware chat—all in a secure, scalable, and user-friendly platform. It empowers users to interact with documents conversationally, automate scheduling, and unlock actionable insights from unstructured data.
+
+  Tech Stack:
+  🚀 Next.js 15, React 19, TypeScript, Tailwind CSS v4
+  ⚙️ FastAPI, Python 3.10+, Uvicorn
+  🤖 Google Gemini 1.5-Flash, LangChain, FAISS
+  🗄️ SQLite, Vector Storage
+  🐳 Docker, Docker Compose
+  `,
+    image: "/project-images/querypilot.png",
+    technologies: ["Next.js", "React", "TypeScript", "FastAPI", "Python", "LangChain", "FAISS", "Gemini", "Docker"],
+    githubUrl: "https://github.com/kar137/QueryPilot-SmartDocsAssistant",
+  },
+
+  {
+    id: "p4",
+    title: "StressSignals: Mental Health Risk Predictor",
+    description: `StressSignals is a data-driven web application designed to assess the likelihood of mental health treatment needs among tech professionals. Built with Python, Streamlit, and machine learning, it leverages survey data and explainable AI to provide actionable insights and predictions.
+
+  The app guides users through a simple, interactive form to enter workplace and personal details, then instantly predicts the likelihood of seeking mental health treatment. Users receive clear, visual feedback on how each factor influences their risk, thanks to SHAP-powered interpretability. The platform’s EDA tools help uncover key trends in age, gender, remote work, and company size, making it valuable for both individuals and organizations.
+
+  StressSignals is used to raise awareness, support early intervention, and inform HR policies in tech companies. Its transparent, user-friendly design encourages open conversations about mental health and empowers users to take proactive steps.
+
+  Key Features:
+  📊 Exploratory Data Analysis (EDA) with interactive visualizations
+  🧠 Predicts treatment-seeking behavior using workplace and demographic factors
+  🤖 Trained on OSMI Mental Health in Tech Survey data
+  🏆 Random Forest, Logistic Regression, and XGBoost models
+  🔍 SHAP-based interpretability for feature importance
+  🌐 Streamlit app for user-friendly predictions and insights
+  🖼️ Visualizations of age, gender, remote work, company size, and more
+
+  Impact:
+  StressSignals empowers individuals and organizations to understand mental health trends, identify risk factors, and promote early intervention. By combining predictive analytics with explainable AI, it helps raise awareness and support for mental health in the tech industry. The app fosters a culture of openness and data-driven decision-making for better workplace well-being.
+
+  Tech Stack:
+  🐍 Python, Jupyter Notebook
+  📊 Streamlit
+  🧠 Scikit-Learn, XGBoost, Random Forest
+  🔬 SHAP
+  `,
+    image: "/project-images/stresssignals.png",
+    technologies: ["Python", "Streamlit", "Jupyter", "Scikit-Learn", "XGBoost", "Random Forest", "SHAP"],
+    githubUrl: "https://github.com/kar137/stress-signals-mental-health-risk-predictor",
+  },
+
+  {
     id: "p1",
     title: "Resume Analyzer (FastAPI)",
-    description: "Microservice built with FastAPI to analyze resumes.",
-    image: "/placeholder.svg",
-    technologies: ["Python", "FastAPI", "Machine Learning"],
+    description: `Resume Analyzer is a FastAPI-powered microservice designed to automate resume parsing and skill extraction for HR and recruitment workflows. It leverages modern backend best practices to deliver fast, reliable, and scalable document analysis.
+
+  The service accepts PDF and DOCX resumes, processes them asynchronously, and extracts valuable insights such as detected skills, word and sentence counts, and document metadata. By utilizing FastAPI’s BackgroundTasks and async endpoints, Resume Analyzer ensures efficient handling of large volumes of documents without blocking the main application flow.
+
+  The microservice is built with clean architecture principles, separating business logic, data models, and API routes for maintainability and extensibility. Automated testing with Pytest and continuous integration via GitHub Actions guarantee code reliability and rapid iteration.
+
+  Resume Analyzer is fully containerized with Docker, making it easy to deploy across different environments. It follows 12-Factor App principles for configuration, environment management, and scalability, ensuring robust performance in both development and production.
+
+  By streamlining resume analysis, Resume Analyzer empowers organizations to automate candidate screening, extract actionable data, and improve recruitment efficiency with minimal manual intervention.
+
+  Key Features:
+  📄 Upload PDF or DOCX resumes
+  🧠 Extract detected skills, word and sentence counts
+  🔄 Background processing with FastAPI’s BackgroundTasks
+  ⚡ Async endpoints and database operations
+  🧪 Pytest-based test coverage
+  🐳 Dockerized deployment with optional Docker Compose
+  📋 CI/CD pipeline using GitHub Actions
+  ✅ Clean architecture with FastAPI routers & dependencies
+  🧾 12-Factor principles for configuration and environment management
+
+  
+  Tech Stack:
+  🚀 FastAPI
+  🐍 Python 3.10+
+  🐳 Docker
+  🧪 Pytest
+  ⚙️ GitHub Actions
+`,
+    image: "/project-images/Resume-analyzer.png",
+    technologies: ["Python", "FastAPI", "Docker", "Machine Learning"],
     githubUrl: "https://github.com/kar137/Resume-Analyzer-FastAPI",
   },
+
+
   {
     id: "p2",
     title: "Machine Learning Portfolio",
@@ -19,38 +165,7 @@ export const initialProjects: Project[] = [
     technologies: ["Python", "Jupyter", "scikit-learn"],
     githubUrl: "https://github.com/kar137/Machine-Learning-Portfolio",
   },
-  {
-    id: "p3",
-    title: "Chat Application (Django)",
-    description: "Real-time chat application built using Django Channels and WebSockets.",
-    image: "/placeholder.svg",
-    technologies: ["Python", "Django", "WebSockets"],
-    githubUrl: "https://github.com/kar137/chatapplication-django",
-  },
-  {
-    id: "p4",
-    title: "Stress Signals & Mental Health Risk Predictor",
-    description: "Predicting mental health risk based on stress signals using ML models.",
-    image: "/placeholder.svg",
-    technologies: ["Python", "Jupyter", "Machine Learning"],
-    githubUrl: "https://github.com/kar137/stress-signals-mental-health-risk-predictor",
-  },
-  {
-    id: "p5",
-    title: "Blango",
-    description: "Web application project built for learning Django and web app development.",
-    image: "/placeholder.svg",
-    technologies: ["Python", "Django", "Web Development"],
-    githubUrl: "https://github.com/kar137/blango",
-  },
-  {
-    id: "p6",
-    title: "QueryPilot – Smart Docs Assistant",
-    description: "AI-powered assistant to query and analyze documents intelligently.",
-    image: "/placeholder.svg",
-    technologies: ["Python", "NLP", "Transformers", "LangChain"],
-    githubUrl: "https://github.com/kar137/QueryPilot-SmartDocsAssistant",
-  },
+
 ];
 
 export const initialCerts: Certification[] = [

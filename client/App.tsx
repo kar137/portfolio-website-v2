@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Layout from "@/components/Layout";
 import BlogPost from "@/pages/BlogPost";
+import ProjectPage from "@/pages/ProjectPage";
 import AdminPage from "@/pages/Admin";
 import { ContentProvider } from "@/store/content";
 
@@ -26,6 +27,7 @@ const App = () => (
             <Route element={<Layout />}>
               <Route path="/" element={<Index />} />
               <Route path="/blog/:id" element={<BlogPost />} />
+              <Route path="/project/:id" element={<ProjectPage />} />
               <Route path="/admin" element={<AdminPage />} />
               <Route path="*" element={<NotFound />} />
             </Route>
