@@ -18,7 +18,7 @@ export default function Hero() {
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold leading-tight tracking-tight">
             <span className="block section-title">Karan Bista</span>
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink">
-              AI/ML Engineer
+              AI Engineer Intern
             </span>
           </h1>
           <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl min-h-[4.5rem]">
