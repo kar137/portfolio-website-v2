@@ -8,7 +8,7 @@ export default function About() {
         <div className="order-2 md:order-1">
           <h2 className="section-title">About Me</h2>
           <p className="mt-3 text-muted-foreground max-w-2xl">
-            I’m Karan Bista, an AI Engineer Intern, passionate about building intelligent systems that power products with predictive insights, generative AI experiences, and scalable data-driven pipelines. My work bridges innovation with practicality, turning advanced models into solutions that truly deliver value.
+            I’m Karan Bista, an Applied AI Engineer, passionate about building intelligent systems that power products with predictive insights, generative AI experiences, and scalable data-driven pipelines. My work bridges innovation with practicality, turning advanced models into solutions that truly deliver value.
           </p>
           <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
             <li className="holo-card">
@@ -58,7 +58,7 @@ export default function About() {
             {/* name badge */}
             <div className="text-center">
               <p className="font-semibold">Karan Bista</p>
-              <p className="text-xs text-muted-foreground">AI Engineer Intern | Fusemachines</p>
+              <p className="text-xs text-muted-foreground">Applied AI Engineer | Abundant (YC F24)</p>
             </div>
           </div>
         </Reveal>

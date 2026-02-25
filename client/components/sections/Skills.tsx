@@ -39,6 +39,12 @@ const categories: {
   skills: string[];
 }[] = [
   {
+    title: "AI / ML & Data Science",
+    icon: Brain,
+    color: "from-neon-pink to-neon-cyan",
+    skills: ["PyTorch", "TensorFlow", "Transformers", "Hugging Face", "LangChain / NLP"],
+  },
+  {
     title: "Languages",
     icon: Code2,
     color: "from-neon-blue to-neon-purple",
@@ -55,12 +61,6 @@ const categories: {
     icon: Cloud,
     color: "from-neon-cyan to-neon-blue",
     skills: ["PostgreSQL", "MySQL", "SQLite"],
-  },
-  {
-    title: "AI / ML & Data Science",
-    icon: Brain,
-    color: "from-neon-pink to-neon-cyan",
-    skills: ["PyTorch", "TensorFlow", "Transformers", "Hugging Face", "LangChain / NLP"],
   },
   {
     title: "DevOps & Tools",

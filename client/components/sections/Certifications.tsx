@@ -33,10 +33,34 @@ export default function Certifications() {
   }, [isMobile]);
   const certs = [
     {
+      id: "fuse-microdegree-ai-2025",
+      title: "Microdegree™ in Artificial Intelligence",
+      issuer: "Fusemachines",
+      date: "Dec 2025",
+      logoUrl: "/fusemachines.png",
+      link: "https://drive.google.com/file/d/1gzp2VDUmEUfdsUnBVl04N8zcHniRRDNM/view",
+    },
+    {
+      id: "aws-cte",
+      title: "AWS Cloud Technical Essentials",
+      issuer: "Amazon Web Services (AWS)",
+      date: "Feb 2026",
+      logoUrl: "/aws.png",
+      link: "https://www.coursera.org/account/accomplishments/verify/W18HHEGPMTRO",
+    },
+    {
+      id: "4",
+      title: "100 Days of Code: Complete Python Pro Bootcamp",
+      issuer: "Udemy",
+      date: "May 2025",
+      logoUrl: "/udemy-logo.png",
+      link: "https://www.udemy.com/certificate/UC-e74a34e9-b961-4ebf-bf0f-c3823465fe6e",
+    },
+    {
       id: "1",
       title: "AI Fundamentals",
       issuer: "DataCamp",
-      date: "2025-07-01",
+      date: "Jul 2025",
       logoUrl: "/datacamp-logo.png",
       link: "https://www.datacamp.com/skill-verification/AIF0021547927731",
     },
@@ -44,7 +68,7 @@ export default function Certifications() {
       id: "2",
       title: "Data Science Foundations – Level 1",
       issuer: "IBM",
-      date: "2025-07-01",
+      date: "Jul 2025",
       logoUrl: "/ibm-logo.png",
       link: "https://www.credly.com/badges/851717e9-efdb-4144-8e43-c5d694388e51/linked_in_profile",
     },
@@ -52,23 +76,15 @@ export default function Certifications() {
       id: "3",
       title: "IBM Machine Learning Specialist – Associate",
       issuer: "IBM",
-      date: "2025-07-01",
+      date: "Jul 2025",
       logoUrl: "/ibm-logo.png",
       link: "https://www.credly.com/badges/851717e9-efdb-4144-8e43-c5d694388e51/linked_in_profile",
-    },
-    {
-      id: "4",
-      title: "100 Days of Code: Complete Python Pro Bootcamp",
-      issuer: "Udemy",
-      date: "2025-05-01",
-      logoUrl: "/udemy-logo.png",
-      link: "https://www.udemy.com/certificate/UC-e74a34e9-b961-4ebf-bf0f-c3823465fe6e",
     },
     {
       id: "5",
       title: "nec Ingenium CodeSprint Hackathon – Winner",
       issuer: "Nepal Engineering College",
-      date: "2025-07-01",
+      date: "Jul 2025",
       logoUrl: "/nec-logo.png",
       link: "https://www.nec.edu.np/codesprint2025",
     },
@@ -139,7 +155,7 @@ export default function Certifications() {
           >
             {certs.map((c) => {
               const Card = (
-                <div className="holo-card flex items-center gap-4 min-w-[19rem] max-w-[22rem]">
+                <div className="holo-card flex flex-col sm:flex-row items-start sm:items-center gap-4 min-w-[19rem] max-w-[22rem]">
                   {c.logoUrl ? (
                     <img
                       src={c.logoUrl}
@@ -158,23 +174,31 @@ export default function Certifications() {
                     <p className="font-semibold">{c.title}</p>
                     <p className="text-sm text-neon-cyan">{c.issuer}</p>
                     <p className="text-xs text-muted-foreground">{c.date}</p>
+                    {c.credentialId && (
+                      <p className="text-xs text-muted-foreground">Credential ID {c.credentialId}</p>
+                    )}
+                    {c.link && (
+                      <div className="mt-3">
+                        <a
+                          href={c.link}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="neon-outline inline-flex items-center gap-2 text-sm py-1 px-3 rounded"
+                        >
+                          Show credential
+                          <ArrowRight className="h-4 w-4" />
+                        </a>
+                      </div>
+                    )}
                   </div>
                 </div>
               );
-              const wrapped = c.link ? (
-                <a
-                  key={c.id}
-                  href={c.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="block"
-                >
-                  {Card}
-                </a>
-              ) : (
-                <div key={c.id}>{Card}</div>
+
+              return (
+                <Reveal key={c.id}>
+                  <div>{Card}</div>
+                </Reveal>
               );
-              return <Reveal key={c.id}>{wrapped}</Reveal>;
             })}
           </div>
           {showRight && (

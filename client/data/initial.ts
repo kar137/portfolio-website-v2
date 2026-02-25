@@ -49,7 +49,34 @@ Sambodhan empowers local governments to deliver transparent, efficient, and citi
       "Docker",
       "PostgreSQL"
     ],
-    githubUrl: "https://github.com/kar137/Sambodhan_AI",
+    githubUrl: "https://github.com/kar137/Sambodhan-AI-Powered-Grievance-Redressal-System-for-Local-Governance",
+  },
+
+  {
+    id: "recipeshare",
+    title: "RecipeShare: AI-Powered Recipe Recommendation Platform",
+    description: `08/2025 - 11/2025
+  RecipeShare is a production-ready, microservices-based recipe recommendation platform designed for personalized, real-time culinary discovery. The system combines scalable backend services (Spring Boot, FastAPI) with a responsive React frontend and a robust data pipeline (PostgreSQL, Kafka, Redis, Elasticsearch) to deliver low-latency recommendations at scale.
+
+  At the core is a hybrid recommender: ALS-based collaborative filtering for broad user–item signals paired with a PyTorch Two-Tower deep model that learns rich user and recipe embeddings from behavior and metadata. The models were trained on 700K+ user interactions and evaluated with production ranking metrics (NDCG@K, Precision@K) to optimize relevance and diversity in top-k results.
+
+  Key features include session-aware ranking, cold-start handling via content-aware embeddings, and a near-real-time feature store powered by Redis and Kafka for streaming updates. The platform supports A/B experiments, offline evaluation pipelines, and automated model deployment to inference services for consistent, measurable improvements in personalization.
+
+  Impact: enabled highly-personalized recipe discovery with strong ranking gains in live experiments, reduced time-to-recommend, and supported rich UX features like adaptive meal suggestions, dietary filters, and contextual recipe bundles.
+  `,
+    image: "/project-images/recipeshare.png",
+    technologies: [
+      "Spring Boot",
+      "FastAPI",
+      "React",
+      "PostgreSQL",
+      "Kafka",
+      "Redis",
+      "Elasticsearch",
+      "PyTorch",
+      "ALS",
+    ],
+    githubUrl: "https://github.com/kar137/RecipeShare-Recipe-Management-System",
   },
 
   {
