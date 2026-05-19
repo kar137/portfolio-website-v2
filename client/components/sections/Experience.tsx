@@ -1,7 +1,7 @@
 const items = [
   {
     company: "Abundant",
-    role: "Applied AI Engineer",
+    role: "Applied Research Engineer",
     period: "Feb 2026 — Present",
     location: "San Francisco Bay Area (Remote)",
     details: [
